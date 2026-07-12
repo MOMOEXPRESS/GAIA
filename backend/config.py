@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     redis_url: str = "redis://localhost:6379/0"
 
     # JWT / Supabase
+    auth_mode: str = "mock"  # mock | supabase
     supabase_url: str = ""
     supabase_service_key: str = ""
     jwt_secret: str = "change-me-in-production"

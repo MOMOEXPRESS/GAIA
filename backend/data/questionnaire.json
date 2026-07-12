@@ -1,0 +1,267 @@
+{
+  "questions": {
+    "root": {
+      "id": "root",
+      "section": "demographics",
+      "question": "What is your biological sex at birth?",
+      "type": "single_choice",
+      "field": "sex_at_birth",
+      "options": ["female", "male", "intersex", "prefer_not_to_say"],
+      "labels": {"female": "Female", "male": "Male", "intersex": "Intersex", "prefer_not_to_say": "Prefer not to say"},
+      "next": {"*": "q_age"}
+    },
+    "q_age": {
+      "id": "q_age",
+      "section": "demographics",
+      "question": "How old are you?",
+      "type": "number_picker",
+      "field": "age",
+      "min": 13,
+      "max": 120,
+      "default": 30,
+      "next": {"*": "q_height"}
+    },
+    "q_height": {
+      "id": "q_height",
+      "section": "demographics",
+      "question": "What is your height (cm)?",
+      "type": "number_picker",
+      "field": "height_cm",
+      "min": 100,
+      "max": 250,
+      "default": 170,
+      "next": {"*": "q_weight"}
+    },
+    "q_weight": {
+      "id": "q_weight",
+      "section": "demographics",
+      "question": "What is your weight (kg)?",
+      "type": "number_picker",
+      "field": "weight_kg",
+      "min": 30,
+      "max": 300,
+      "default": 70,
+      "next": {"*": "q_blood_type"}
+    },
+    "q_blood_type": {
+      "id": "q_blood_type",
+      "section": "demographics",
+      "question": "What is your blood type?",
+      "type": "single_choice",
+      "field": "blood_type",
+      "options": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "unknown"],
+      "labels": {"unknown": "I don't know"},
+      "next": {"*": "q_ethnicity"}
+    },
+    "q_ethnicity": {
+      "id": "q_ethnicity",
+      "section": "demographics",
+      "question": "What is your ethnicity?",
+      "type": "single_choice",
+      "field": "ethnicity",
+      "options": ["african", "asian", "caucasian", "hispanic_latino", "middle_eastern", "native_indigenous", "pacific_islander", "mixed", "prefer_not_to_say"],
+      "labels": {"african": "African / Black", "asian": "Asian", "caucasian": "Caucasian / White", "hispanic_latino": "Hispanic / Latino", "middle_eastern": "Middle Eastern", "native_indigenous": "Native / Indigenous", "pacific_islander": "Pacific Islander", "mixed": "Mixed", "prefer_not_to_say": "Prefer not to say"},
+      "next": {"*": "q_country"}
+    },
+    "q_country": {
+      "id": "q_country",
+      "section": "location",
+      "question": "Which country do you live in?",
+      "type": "country_picker",
+      "field": "country_code",
+      "next": {"*": "q_city"}
+    },
+    "q_city": {
+      "id": "q_city",
+      "section": "location",
+      "question": "Which city? (optional)",
+      "type": "city_picker",
+      "field": "city",
+      "optional": true,
+      "next": {"*": "q_occupation"}
+    },
+    "q_occupation": {
+      "id": "q_occupation",
+      "section": "lifestyle",
+      "question": "What best describes your occupation?",
+      "type": "single_choice",
+      "field": "occupation_type",
+      "options": ["sedentary_office", "manual_labor", "healthcare", "education", "retail_service", "creative", "student", "retired", "homemaker", "unemployed"],
+      "labels": {"sedentary_office": "Office / desk work", "manual_labor": "Manual / physical labor", "healthcare": "Healthcare", "education": "Education", "retail_service": "Retail / service", "creative": "Creative / freelance", "student": "Student", "retired": "Retired", "homemaker": "Homemaker", "unemployed": "Not currently working"},
+      "next": {"*": "q_sedentary"}
+    },
+    "q_sedentary": {
+      "id": "q_sedentary",
+      "section": "lifestyle",
+      "question": "How many hours per day do you sit?",
+      "type": "scale",
+      "field": "sedentary_hours",
+      "min": 0,
+      "max": 16,
+      "labels": {"0": "Almost none", "8": "Full workday", "16": "Nearly all day"},
+      "next": {"*": "q_shift_work"}
+    },
+    "q_shift_work": {
+      "id": "q_shift_work",
+      "section": "lifestyle",
+      "question": "Do you work night or rotating shifts?",
+      "type": "single_choice",
+      "field": "shift_work",
+      "options": ["yes", "no"],
+      "labels": {"yes": "Yes", "no": "No"},
+      "next": {"yes": "q_marital", "no": "q_marital", "*": "q_marital"}
+    },
+    "q_marital": {
+      "id": "q_marital",
+      "section": "social",
+      "question": "What is your marital status?",
+      "type": "single_choice",
+      "field": "marital_status",
+      "options": ["single", "partnered", "married", "divorced", "widowed", "prefer_not_to_say"],
+      "labels": {"partnered": "In a relationship"},
+      "next": {"*": "q_household"}
+    },
+    "q_household": {
+      "id": "q_household",
+      "section": "social",
+      "question": "How many people live in your household?",
+      "type": "number_picker",
+      "field": "household_size",
+      "min": 1,
+      "max": 15,
+      "default": 2,
+      "next": {"*": "q_financial_stress"}
+    },
+    "q_financial_stress": {
+      "id": "q_financial_stress",
+      "section": "mental_health",
+      "question": "How stressed are you about finances? (1 = none, 10 = extreme)",
+      "type": "scale",
+      "field": "financial_stress",
+      "min": 1,
+      "max": 10,
+      "next": {"*": "q_social_support"}
+    },
+    "q_social_support": {
+      "id": "q_social_support",
+      "section": "mental_health",
+      "question": "How strong is your social support network? (1 = isolated, 10 = very supported)",
+      "type": "scale",
+      "field": "social_support_index",
+      "min": 1,
+      "max": 10,
+      "next": {"*": "q_mood"}
+    },
+    "q_mood": {
+      "id": "q_mood",
+      "section": "mental_health",
+      "question": "How often do you feel low mood or sadness?",
+      "type": "single_choice",
+      "field": "mood_frequency",
+      "options": ["rarely", "sometimes", "often", "daily"],
+      "labels": {"rarely": "Rarely", "sometimes": "Sometimes", "often": "Often", "daily": "Daily"},
+      "next": {"*": "q_sleep"}
+    },
+    "q_sleep": {
+      "id": "q_sleep",
+      "section": "mental_health",
+      "question": "How would you rate your sleep quality?",
+      "type": "single_choice",
+      "field": "sleep_quality",
+      "options": ["excellent", "good", "fair", "poor"],
+      "labels": {"excellent": "Excellent", "good": "Good", "fair": "Fair", "poor": "Poor"},
+      "next": {"*": "q_anxiety"}
+    },
+    "q_anxiety": {
+      "id": "q_anxiety",
+      "section": "mental_health",
+      "question": "How often do you feel anxious or worried?",
+      "type": "single_choice",
+      "field": "anxiety_frequency",
+      "options": ["rarely", "sometimes", "often", "daily"],
+      "labels": {"rarely": "Rarely", "sometimes": "Sometimes", "often": "Often", "daily": "Daily"},
+      "next": {"*": "q_meditation"}
+    },
+    "q_meditation": {
+      "id": "q_meditation",
+      "section": "spiritual",
+      "question": "How many minutes of meditation or mindfulness per day?",
+      "type": "number_picker",
+      "field": "meditation_minutes",
+      "min": 0,
+      "max": 120,
+      "default": 0,
+      "next": {"*": "q_nature"}
+    },
+    "q_nature": {
+      "id": "q_nature",
+      "section": "spiritual",
+      "question": "How many minutes per day do you spend in nature?",
+      "type": "number_picker",
+      "field": "time_in_nature_minutes",
+      "min": 0,
+      "max": 240,
+      "default": 15,
+      "next": {"*": "q_purpose"}
+    },
+    "q_purpose": {
+      "id": "q_purpose",
+      "section": "spiritual",
+      "question": "How strong is your sense of purpose? (1 = lost, 10 = very clear)",
+      "type": "scale",
+      "field": "sense_of_purpose_score",
+      "min": 1,
+      "max": 10,
+      "next": {"*": "q_past_illnesses"}
+    },
+    "q_past_illnesses": {
+      "id": "q_past_illnesses",
+      "section": "health_history",
+      "question": "Have you experienced any of these conditions?",
+      "type": "multi_choice",
+      "field": "past_illnesses",
+      "options": ["none", "diabetes", "hypertension", "asthma", "depression", "anxiety_disorder", "thyroid", "autoimmune", "digestive_issues", "chronic_pain", "migraine", "eczema", "pcos"],
+      "labels": {"none": "None of these", "anxiety_disorder": "Anxiety disorder", "digestive_issues": "Digestive issues", "chronic_pain": "Chronic pain"},
+      "next": {"*": "q_medications"}
+    },
+    "q_medications": {
+      "id": "q_medications",
+      "section": "health_history",
+      "question": "Are you currently taking any medications?",
+      "type": "multi_choice",
+      "field": "current_medications",
+      "options": ["none", "blood_pressure", "diabetes", "thyroid", "antidepressant", "birth_control", "pain_relief", "vitamins", "herbal_supplements"],
+      "labels": {"none": "None", "blood_pressure": "Blood pressure meds", "pain_relief": "Pain relief", "herbal_supplements": "Herbal supplements"},
+      "next": {"*": "q_allergies"}
+    },
+    "q_allergies": {
+      "id": "q_allergies",
+      "section": "health_history",
+      "question": "Do you have any allergies?",
+      "type": "multi_choice",
+      "field": "allergies",
+      "options": ["none", "pollen", "dust", "peanuts", "tree_nuts", "dairy", "gluten", "shellfish", "eggs", "soy", "latex", "penicillin"],
+      "labels": {"none": "None"},
+      "next": {"*": "q_family_history"}
+    },
+    "q_family_history": {
+      "id": "q_family_history",
+      "section": "health_history",
+      "question": "Any of these conditions in your immediate family?",
+      "type": "multi_choice",
+      "field": "family_history",
+      "options": ["none", "heart_disease", "diabetes", "cancer", "stroke", "hypertension", "mental_illness", "autoimmune", "alzheimers"],
+      "labels": {"none": "None", "heart_disease": "Heart disease", "mental_illness": "Mental illness", "alzheimers": "Alzheimer's"},
+      "next": {"*": "complete"}
+    },
+    "complete": {
+      "id": "complete",
+      "section": "done",
+      "question": "Profile complete!",
+      "type": "complete",
+      "next": {}
+    }
+  },
+  "start": "root",
+  "total_questions": 24
+}

@@ -2,12 +2,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import settings
-from routers import doctors, protocols, safety, shopping, symptoms, users
+from database import init_db
+from routers import auth, doctors, protocols, safety, shopping, symptoms, users
 
 app = FastAPI(
     title=settings.app_name,
     description="Holistic wellness API — educational natural health support",
-    version="0.1.0",
+    version="0.2.0",
 )
 
 origins = [o.strip() for o in settings.cors_origins.split(",") if o.strip()]
@@ -20,6 +21,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth.router, prefix=settings.api_prefix)
 app.include_router(users.router, prefix=settings.api_prefix)
 app.include_router(symptoms.router, prefix=settings.api_prefix)
 app.include_router(protocols.router, prefix=settings.api_prefix)
@@ -28,6 +30,11 @@ app.include_router(shopping.router, prefix=settings.api_prefix)
 app.include_router(doctors.router, prefix=settings.api_prefix)
 
 
+@app.on_event("startup")
+def startup():
+    init_db()
+
+
 @app.get("/health")
 async def health():
-    return {"status": "ok", "service": "gaia-health-api"}
+    return {"status": "ok", "service": "gaia-health-api", "auth_mode": settings.auth_mode}

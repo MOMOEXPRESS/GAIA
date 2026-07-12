@@ -1,0 +1,66 @@
+{
+  "default": {
+    "environmental_score": 65,
+    "pollution_tier": "moderate",
+    "common_deficiencies": ["vitamin D", "magnesium"],
+    "seasonal_patterns": ["seasonal colds in winter"],
+    "wellness_considerations": ["Maintain balanced nutrition", "Regular movement supports circulation"],
+    "mental_health_factors": ["Work-life balance affects mood", "Social connection supports resilience"]
+  },
+  "US": {
+    "environmental_score": 62,
+    "pollution_tier": "moderate",
+    "common_deficiencies": ["vitamin D", "magnesium", "omega-3"],
+    "seasonal_patterns": ["flu season Nov–Mar", "allergy season spring"],
+    "wellness_considerations": ["Processed food is common — prioritize whole foods", "Sedentary work culture — schedule movement breaks", "Air conditioning can reduce time outdoors"],
+    "mental_health_factors": ["High work stress culture", "Social isolation in suburban areas", "Seasonal mood shifts in northern states"]
+  },
+  "GB": {
+    "environmental_score": 68,
+    "pollution_tier": "moderate",
+    "common_deficiencies": ["vitamin D", "iron"],
+    "seasonal_patterns": ["SAD risk Oct–Mar", "damp cold winters"],
+    "wellness_considerations": ["Low sunlight — consider vitamin D sources", "Damp climate — keep warm and dry", "Indoor heating reduces air humidity"],
+    "mental_health_factors": ["Seasonal affective patterns common", "Urban pace can increase stress", "Grey winters may affect mood"]
+  },
+  "IN": {
+    "environmental_score": 55,
+    "pollution_tier": "high",
+    "common_deficiencies": ["iron", "vitamin B12", "vitamin D"],
+    "seasonal_patterns": ["monsoon Jul–Sep", "heat waves Apr–Jun", "dengue in rainy season"],
+    "wellness_considerations": ["High heat requires hydration", "Monsoon — food hygiene awareness", "Air quality may affect respiratory comfort in cities"],
+    "mental_health_factors": ["Urban overcrowding stress", "Family/social expectations pressure", "Heat-related sleep disruption"]
+  },
+  "AU": {
+    "environmental_score": 78,
+    "pollution_tier": "low",
+    "common_deficiencies": ["vitamin D paradox — high sun but indoor lifestyle"],
+    "seasonal_patterns": ["summer Dec–Feb (inverted seasons)", "bushfire smoke risk"],
+    "wellness_considerations": ["High UV — sun protection important", "Outdoor lifestyle opportunities abundant", "Heat waves in interior regions"],
+    "mental_health_factors": ["Isolation in rural areas", "Strong outdoor culture supports mental health", "Inverted seasons may confuse circadian rhythm for newcomers"]
+  },
+  "NG": {
+    "environmental_score": 52,
+    "pollution_tier": "high",
+    "common_deficiencies": ["iron", "vitamin A", "zinc"],
+    "seasonal_patterns": ["malaria risk in rainy season", "harmattan dry dust Nov–Mar"],
+    "wellness_considerations": ["Hydration critical in heat", "Mosquito-borne illness awareness in wet season", "Dust during harmattan affects airways"],
+    "mental_health_factors": ["Economic stress common", "Strong community networks support resilience", "Urban migration stress"]
+  },
+  "JP": {
+    "environmental_score": 72,
+    "pollution_tier": "low",
+    "common_deficiencies": ["vitamin D in office workers", "calcium"],
+    "seasonal_patterns": ["humid summers", "typhoon season Aug–Oct", "cherry blossom allergy spring"],
+    "wellness_considerations": ["High humidity summers — electrolyte balance", "Long work hours culture — rest is important", "Seafood-rich diet supports omega-3"],
+    "mental_health_factors": ["Work culture stress (karoshi awareness)", "Seasonal beauty supports mood in spring", "Urban density in Tokyo"]
+  },
+  "CA": {
+    "environmental_score": 75,
+    "pollution_tier": "low",
+    "common_deficiencies": ["vitamin D in winter"],
+    "seasonal_patterns": ["extreme cold in prairies", "wildfire smoke in west"],
+    "wellness_considerations": ["Long winters — vitamin D and light exposure", "Outdoor recreation opportunities", "Wildfire season air quality awareness"],
+    "mental_health_factors": ["SAD in northern provinces", "Strong nature access supports mental health", "Seasonal isolation in remote areas"]
+  }
+}

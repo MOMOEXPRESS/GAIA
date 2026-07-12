@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { Navbar } from "@/components/Navbar";
+import { Providers } from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-geist-sans" });
 const playfair = Playfair_Display({
@@ -36,9 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
-        <DisclaimerBanner />
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <Providers>
+          <DisclaimerBanner />
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+        </Providers>
       </body>
     </html>
   );

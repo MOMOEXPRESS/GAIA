@@ -1,0 +1,19 @@
+{
+  "countries": [
+    {"code": "US", "name": "United States", "lat": 38.9, "lon": -77.0, "capital": "Washington D.C.", "cities": ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"]},
+    {"code": "GB", "name": "United Kingdom", "lat": 51.5, "lon": -0.1, "capital": "London", "cities": ["London", "Manchester", "Birmingham", "Edinburgh", "Glasgow"]},
+    {"code": "FR", "name": "France", "lat": 48.9, "lon": 2.3, "capital": "Paris", "cities": ["Paris", "Lyon", "Marseille", "Toulouse", "Nice"]},
+    {"code": "DE", "name": "Germany", "lat": 52.5, "lon": 13.4, "capital": "Berlin", "cities": ["Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne"]},
+    {"code": "CA", "name": "Canada", "lat": 45.4, "lon": -75.7, "capital": "Ottawa", "cities": ["Toronto", "Vancouver", "Montreal", "Calgary", "Ottawa"]},
+    {"code": "AU", "name": "Australia", "lat": -35.3, "lon": 149.1, "capital": "Canberra", "cities": ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide"]},
+    {"code": "IN", "name": "India", "lat": 28.6, "lon": 77.2, "capital": "New Delhi", "cities": ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata"]},
+    {"code": "BR", "name": "Brazil", "lat": -15.8, "lon": -47.9, "capital": "Brasilia", "cities": ["Sao Paulo", "Rio de Janeiro", "Brasilia", "Salvador", "Fortaleza"]},
+    {"code": "MX", "name": "Mexico", "lat": 19.4, "lon": -99.1, "capital": "Mexico City", "cities": ["Mexico City", "Guadalajara", "Monterrey", "Puebla", "Tijuana"]},
+    {"code": "JP", "name": "Japan", "lat": 35.7, "lon": 139.7, "capital": "Tokyo", "cities": ["Tokyo", "Osaka", "Kyoto", "Yokohama", "Nagoya"]},
+    {"code": "NG", "name": "Nigeria", "lat": 9.1, "lon": 7.5, "capital": "Abuja", "cities": ["Lagos", "Abuja", "Kano", "Ibadan", "Port Harcourt"]},
+    {"code": "ZA", "name": "South Africa", "lat": -25.7, "lon": 28.2, "capital": "Pretoria", "cities": ["Johannesburg", "Cape Town", "Durban", "Pretoria", "Port Elizabeth"]},
+    {"code": "EG", "name": "Egypt", "lat": 30.0, "lon": 31.2, "capital": "Cairo", "cities": ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan"]},
+    {"code": "IT", "name": "Italy", "lat": 41.9, "lon": 12.5, "capital": "Rome", "cities": ["Rome", "Milan", "Naples", "Turin", "Florence"]},
+    {"code": "ES", "name": "Spain", "lat": 40.4, "lon": -3.7, "capital": "Madrid", "cities": ["Madrid", "Barcelona", "Valencia", "Seville", "Bilbao"]}
+  ]
+}
