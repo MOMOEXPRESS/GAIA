@@ -61,6 +61,7 @@ def _profile_to_dict(profile: Profile, user: User) -> dict:
         "allergies": json.loads(profile.allergies or "[]"),
         "past_illnesses": json.loads(profile.past_illnesses or "[]"),
         "family_history": json.loads(profile.family_history or "[]"),
+        "health_goals": json.loads(getattr(profile, "health_goals", None) or "[]"),
         "questionnaire_answers": json.loads(profile.questionnaire_answers or "{}"),
         "voice_notes": json.loads(profile.voice_notes or "[]"),
         "wellness_snapshot": json.loads(profile.wellness_snapshot or "{}"),
@@ -223,11 +224,11 @@ async def submit_answer(
     if q.get("field"):
         pdata = _profile_to_dict(profile, user)
         updated = apply_answer_to_profile_field(q["field"], req.answer, pdata)
-        for key in ("past_illnesses", "current_medications", "allergies", "family_history"):
+        for key in ("past_illnesses", "current_medications", "allergies", "family_history", "health_goals"):
             if key in updated:
                 setattr(profile, key, json.dumps(updated[key]))
         for key, val in updated.items():
-            if key not in ("past_illnesses", "current_medications", "allergies", "family_history",
+            if key not in ("past_illnesses", "current_medications", "allergies", "family_history", "health_goals",
                            "questionnaire_answers", "voice_notes", "wellness_snapshot", "location_context",
                            "display_name", "email", "is_demo", "id", "user_id", "share_code"):
                 if hasattr(profile, key):
@@ -245,6 +246,11 @@ async def submit_answer(
         session.completed = True
         session.current_question_id = "complete"
         await _refresh_profile_scores(profile, user, db)
+        from events.bus import publish
+        from memory.engine import ensure_default_consents, extract_memories_from_profile
+        ensure_default_consents(db, user.id)
+        extract_memories_from_profile(db, user.id, _profile_to_dict(profile, user))
+        publish("QuestionnaireCompleted", {"user_id": user.id, "profile_data": _profile_to_dict(profile, user)})
     else:
         session.current_question_id = next_id
 
@@ -305,6 +311,15 @@ async def create_health_event(
     db.add(event)
     db.commit()
     db.refresh(event)
+    from services.timeline_engine import create_timeline_event
+    create_timeline_event(
+        db, user.id, data.event_type, "medical",
+        title=data.event_type.replace("_", " ").title(),
+        description=data.description,
+        source="user_entered",
+        metadata={"severity": data.severity, "outcome": data.outcome},
+        importance=data.severity or 5,
+    )
     profile = _get_or_create_profile(user, db)
     await _refresh_profile_scores(profile, user, db)
     return HealthEventResponse(

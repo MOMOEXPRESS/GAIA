@@ -1,5 +1,15 @@
 {
   "questions": {
+    "q_goals": {
+      "id": "q_goals",
+      "section": "goals",
+      "question": "What do you want Gaia to help you with?",
+      "type": "multi_choice",
+      "field": "health_goals",
+      "options": ["sleep", "stress", "fitness", "nutrition", "chronic_condition", "pregnancy", "healthy_aging", "general_wellness"],
+      "labels": {"sleep": "Sleep", "stress": "Stress", "fitness": "Fitness", "nutrition": "Nutrition", "chronic_condition": "Chronic condition", "pregnancy": "Pregnancy", "healthy_aging": "Healthy aging", "general_wellness": "General wellness"},
+      "next": {"*": "root"}
+    },
     "root": {
       "id": "root",
       "section": "demographics",
@@ -262,6 +272,6 @@
       "next": {}
     }
   },
-  "start": "root",
-  "total_questions": 24
+  "start": "q_goals",
+  "total_questions": 25
 }

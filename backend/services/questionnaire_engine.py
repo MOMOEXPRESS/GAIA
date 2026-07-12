@@ -36,7 +36,7 @@ def get_next_question_id(current_id: str, answer: Any) -> str | None:
 def apply_answer_to_profile_field(field: str, answer: Any, profile_data: dict) -> dict:
     if field == "shift_work":
         profile_data[field] = answer == "yes"
-    elif field in ("past_illnesses", "current_medications", "allergies", "family_history"):
+    elif field in ("past_illnesses", "current_medications", "allergies", "family_history", "health_goals"):
         if isinstance(answer, list):
             profile_data[field] = [a for a in answer if a != "none"]
         else:

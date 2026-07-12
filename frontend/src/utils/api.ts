@@ -48,6 +48,27 @@ export interface AuthUser {
   role: string;
 }
 
+export interface WellnessSnapshot {
+  bmi?: number;
+  bmi_category?: string;
+  overall_score?: number;
+  dimensions?: { physical: number; mental: number; lifestyle: number; environmental: number };
+  dimension_breakdown?: Record<string, { score: number; max: number }>;
+  insights?: string[];
+  disclaimer?: string;
+}
+
+export interface LocationContext {
+  country?: string;
+  city?: string;
+  climate_zone?: string;
+  weather?: { temperature_c?: number; humidity_pct?: number; uv_index?: number };
+  wellness_considerations?: string[];
+  mental_health_factors?: string[];
+  health_links?: { title: string; url: string }[];
+  disclaimer?: string;
+}
+
 export interface Profile {
   id: string;
   user_id: string;
@@ -78,6 +99,7 @@ export interface Profile {
   allergies?: string[];
   past_illnesses?: string[];
   family_history?: string[];
+  health_goals?: string[];
   questionnaire_answers?: Record<string, unknown>;
   voice_notes?: { question_id: string; transcript: string }[];
   wellness_snapshot?: WellnessSnapshot;
@@ -85,26 +107,6 @@ export interface Profile {
   display_name?: string;
   email?: string;
   is_demo?: boolean;
-}
-
-export interface WellnessSnapshot {
-  bmi?: number;
-  bmi_category?: string;
-  overall_score?: number;
-  dimensions?: { physical: number; mental: number; lifestyle: number; environmental: number };
-  insights?: string[];
-  disclaimer?: string;
-}
-
-export interface LocationContext {
-  country?: string;
-  city?: string;
-  climate_zone?: string;
-  weather?: { temperature_c?: number; humidity_pct?: number; uv_index?: number };
-  wellness_considerations?: string[];
-  mental_health_factors?: string[];
-  health_links?: { title: string; url: string }[];
-  disclaimer?: string;
 }
 
 export interface Question {
@@ -121,10 +123,51 @@ export interface Question {
   optional?: boolean;
 }
 
+export interface Recommendation {
+  id: string;
+  title: string;
+  reason?: string;
+  priority: number;
+  category: string;
+  status: string;
+}
+
+export interface TimelineEvent {
+  id: string;
+  event_type: string;
+  category: string;
+  occurred_at?: string;
+  source?: string;
+  title?: string;
+  description?: string;
+  importance?: number;
+  ai_summary?: string;
+}
+
+export interface Briefing {
+  greeting: string;
+  display_name?: string;
+  date?: string;
+  wellness?: WellnessSnapshot;
+  risk_scores?: { category: string; level: string; message: string }[];
+  recommendations?: Recommendation[];
+  recent_timeline?: TimelineEvent[];
+  ai_insight?: string;
+  disclaimer?: string;
+}
+
+export interface AIWorkspace {
+  summary?: WellnessSnapshot;
+  recommendations?: Recommendation[];
+  risk_trends?: { category: string; level: string; message: string }[];
+  insights?: string[];
+  memories?: { tier: string; content: string }[];
+  disclaimer?: string;
+}
+
 export const api = {
   health: () => request<{ status: string; service: string }>("/health"),
 
-  // Auth
   login: (email: string, password: string) =>
     request<{ access_token: string; user: AuthUser }>("/api/v1/auth/login", {
       method: "POST",
@@ -142,7 +185,6 @@ export const api = {
     ),
   me: () => request<AuthUser>("/api/v1/auth/me"),
 
-  // Profile
   getProfile: () => request<Profile>("/api/v1/profile"),
   updateProfile: (data: Partial<Profile>) =>
     request<Profile>("/api/v1/profile", { method: "PUT", body: JSON.stringify(data) }),
@@ -151,11 +193,9 @@ export const api = {
   previewLocation: (countryCode: string, city?: string) =>
     request<LocationContext>(`/api/v1/location-preview/${countryCode}${city ? `?city=${encodeURIComponent(city)}` : ""}`),
 
-  // Countries
   listCountries: () => request<{ code: string; name: string; cities: string[] }[]>("/api/v1/countries"),
   listCities: (code: string) => request<{ cities: string[] }>(`/api/v1/countries/${code}/cities`),
 
-  // Questionnaire
   startQuestionnaire: () =>
     request<{ session_id: string; question: Question; progress: { answered: number; total: number } }>(
       "/api/v1/questionnaire/session",
@@ -176,7 +216,6 @@ export const api = {
       { method: "POST", body: JSON.stringify({ transcript, options }) }
     ),
 
-  // Health events
   listHealthEvents: () =>
     request<{ id: string; event_type: string; description?: string; severity?: number; outcome?: string; tags: string[] }[]>(
       "/api/v1/health-events"
@@ -186,12 +225,10 @@ export const api = {
   deleteHealthEvent: (id: string) =>
     request(`/api/v1/health-events/${id}`, { method: "DELETE" }),
 
-  // Symptoms
   createSymptom: (data: Record<string, unknown>) =>
     request("/api/v1/symptoms", { method: "POST", body: JSON.stringify(data) }),
   listSymptoms: () => request<unknown[]>("/api/v1/symptoms"),
 
-  // Protocols
   generateProtocol: (symptomIds: string[]) =>
     request("/api/v1/protocols/generate", {
       method: "POST",
@@ -199,14 +236,62 @@ export const api = {
     }),
   listProtocols: () => request<unknown[]>("/api/v1/protocols"),
 
-  // Shopping
   searchPrices: (items: string[]) =>
     request("/api/v1/shopping/search", { method: "POST", body: JSON.stringify({ items }) }),
 
-  // Safety
   checkRedFlags: (text: string) =>
     request<{ has_red_flags: boolean; flags: string[] }>("/api/v1/safety/check", {
       method: "POST",
       body: JSON.stringify({ text }),
     }),
+
+  // Gaia 2.0
+  getBriefing: () => request<Briefing>("/api/v1/briefing/today"),
+  getRecommendations: () => request<Recommendation[]>("/api/v1/briefing/recommendations"),
+  updateRecommendation: (id: string, status: string) =>
+    request(`/api/v1/briefing/recommendations/${id}?status=${status}`, { method: "PATCH" }),
+
+  getTimeline: (category?: string) =>
+    request<TimelineEvent[]>(`/api/v1/timeline${category ? `?category=${category}` : ""}`),
+
+  getMemories: (tier?: string) =>
+    request<{ id: string; tier: string; content: string }[]>(`/api/v1/memory${tier ? `?tier=${tier}` : ""}`),
+
+  aiChat: (message: string) =>
+    request<{ response: string; intent: string; agent: string; disclaimer: string }>(
+      "/api/v1/ai/chat",
+      { method: "POST", body: JSON.stringify({ message }) }
+    ),
+  getAIWorkspace: () => request<AIWorkspace>("/api/v1/ai/workspace"),
+
+  getConsents: () => request<{ consents: { type: string; granted: boolean }[] }>("/api/v1/privacy/consents"),
+  updateConsent: (consent_type: string, granted: boolean) =>
+    request("/api/v1/privacy/consents", { method: "PUT", body: JSON.stringify({ consent_type, granted }) }),
+  getDataSummary: () => request<Record<string, unknown>>("/api/v1/privacy/data-summary"),
+  getAuditLog: () => request<{ action: string; resource_type: string; created_at: string }[]>("/api/v1/privacy/audit-log"),
+
+  listMedications: () => request<{ id: string; name: string; dosage?: string; frequency?: string }[]>("/api/v1/medications"),
+  createMedication: (data: { name: string; dosage?: string; frequency?: string }) =>
+    request("/api/v1/medications", { method: "POST", body: JSON.stringify(data) }),
+  logMedicationAdherence: (id: string, taken: boolean) =>
+    request(`/api/v1/medications/${id}/log-adherence?taken=${taken}`, { method: "POST" }),
+
+  listLabs: () => request<{ id: string; test_name: string; value?: string; unit?: string; test_date?: string }[]>("/api/v1/labs"),
+  createLab: (data: { test_name: string; value?: string; unit?: string; test_date?: string }) =>
+    request("/api/v1/labs", { method: "POST", body: JSON.stringify(data) }),
+
+  listSleep: () => request<{ id: string; sleep_date: string; duration_hours?: number; quality_score?: number }[]>("/api/v1/sleep"),
+  createSleep: (data: { sleep_date: string; duration_hours?: number; quality_score?: number }) =>
+    request("/api/v1/sleep", { method: "POST", body: JSON.stringify(data) }),
+
+  listFamily: () => request<{ id: string; name: string; relationship_type: string }[]>("/api/v1/family"),
+  addFamily: (data: { relationship_type: string; name: string }) =>
+    request("/api/v1/family", { method: "POST", body: JSON.stringify(data) }),
+
+  listIntegrations: () => request<{ id: string; name: string; type: string }[]>("/api/v1/integrations/providers"),
+  connectIntegration: (provider: string) =>
+    request(`/api/v1/integrations/${provider}/connect`, { method: "POST" }),
+
+  getDoctorPatients: () => request<unknown[]>("/api/v1/doctor/patients"),
+  getPatientSummary: (patientId: string) => request<Record<string, unknown>>(`/api/v1/doctor/patients/${patientId}/summary`),
 };

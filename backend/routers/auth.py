@@ -45,6 +45,8 @@ def login(req: LoginRequest, db: Session = Depends(get_db)):
 
 @router.post("/demo", response_model=DemoAuthResponse)
 def create_demo(db: Session = Depends(get_db)):
+    from middleware.rbac import check_rate_limit
+    check_rate_limit("auth_demo", max_requests=5, window_seconds=300)
     provider = get_auth_provider()
     try:
         user, password, token = provider.create_demo(db)

@@ -128,6 +128,27 @@ export default function ProfilePage() {
             <ListField label="Current medications" items={profile.current_medications} />
             <ListField label="Allergies" items={profile.allergies} />
             <ListField label="Family history" items={profile.family_history} />
+            <ListField label="Health goals" items={profile.health_goals} />
+          </div>
+        </section>
+
+        <section className="mt-6 rounded-xl border border-gaia-100 bg-white p-6">
+          <h2 className="font-semibold text-gaia-900">Health modules</h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {[
+              { href: "/timeline", label: "Timeline" },
+              { href: "/medications", label: "Medications" },
+              { href: "/labs", label: "Labs" },
+              { href: "/sleep", label: "Sleep" },
+              { href: "/nutrition", label: "Nutrition" },
+              { href: "/family", label: "Family" },
+              { href: "/emergency", label: "Emergency" },
+              { href: "/privacy", label: "Privacy Center" },
+            ].map((link) => (
+              <Link key={link.href} href={link.href} className="rounded-full bg-gaia-100 px-4 py-1.5 text-sm font-medium text-gaia-700 hover:bg-gaia-200">
+                {link.label}
+              </Link>
+            ))}
           </div>
         </section>
 

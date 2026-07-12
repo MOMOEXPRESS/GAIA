@@ -9,8 +9,8 @@ class Settings(BaseSettings):
     # CORS
     cors_origins: str = "http://localhost:3000,https://*.vercel.app"
 
-    # PostgreSQL (Supabase)
-    database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/gaia"
+    # Database: sqlite (local dev) or postgresql (production)
+    database_url: str = "sqlite"
 
     # MongoDB (symptom logs)
     mongodb_url: str = "mongodb://localhost:27017"

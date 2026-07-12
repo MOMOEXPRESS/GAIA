@@ -16,7 +16,7 @@ export function ProgressiveQuestionnaire() {
   const router = useRouter();
   const [sessionId, setSessionId] = useState("");
   const [question, setQuestion] = useState<Question | null>(null);
-  const [progress, setProgress] = useState({ answered: 0, total: 24 });
+  const [progress, setProgress] = useState({ answered: 0, total: 25 });
   const [completed, setCompleted] = useState(false);
   const [answer, setAnswer] = useState<unknown>(null);
   const [answers, setAnswers] = useState<Record<string, unknown>>({});
@@ -107,7 +107,11 @@ export function ProgressiveQuestionnaire() {
     <div className="mx-auto max-w-2xl px-4 py-8">
       <div className="mb-2 flex justify-between text-sm text-gaia-600">
         <span className="capitalize">{question.section.replace(/_/g, " ")}</span>
-        <span>{progress.answered} / {progress.total}</span>
+        <span>
+          {progress.total - progress.answered <= 3 && progress.answered > 0
+            ? `Almost done — just ${progress.total - progress.answered} more`
+            : `${progress.answered} / ${progress.total}`}
+        </span>
       </div>
       <div className="h-2 rounded-full bg-gaia-100">
         <div

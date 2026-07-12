@@ -8,10 +8,12 @@ import clsx from "clsx";
 import { useAuth } from "@/contexts/AuthContext";
 
 const navLinks = [
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/journal", label: "Symptom Journal" },
+  { href: "/dashboard", label: "Home" },
+  { href: "/timeline", label: "Health" },
+  { href: "/journal", label: "Journal" },
+  { href: "/ai", label: "AI" },
+  { href: "/doctor", label: "Doctors" },
   { href: "/profile", label: "Profile" },
-  { href: "/protocols", label: "Protocols" },
 ];
 
 export function Navbar() {

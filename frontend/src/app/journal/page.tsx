@@ -1,5 +1,10 @@
 import { SymptomJournal } from "@/components/SymptomJournal";
+import { AuthGuard } from "@/components/AuthGuard";
 
 export default function JournalPage() {
-  return <SymptomJournal />;
+  return (
+    <AuthGuard>
+      <SymptomJournal />
+    </AuthGuard>
+  );
 }
