@@ -1,0 +1,977 @@
+{
+  "version": "1.0",
+  "patterns": [
+    {
+      "pattern_id": "liver_qi_stagnation",
+      "tcm_framework": true,
+      "display_name": "Liver Qi Stagnation Pattern",
+      "symptoms": {
+        "required": ["rib_side_distension", "emotional_stress_trigger", "irritability"],
+        "supporting": ["PMS", "headache_temporal", "digestive_upset", "sighing"]
+      },
+      "red_flags": ["chest_pain_crushing", "blood_vomit"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Milk Thistle",
+            "latin_name": "Silybum marianum",
+            "part_used": "seed",
+            "dosage": "150-300mg silymarin",
+            "frequency": "twice daily",
+            "duration": "4-8 weeks",
+            "caution": "Consult provider if on liver medications"
+          },
+          {
+            "name": "Dandelion Root",
+            "latin_name": "Taraxacum officinale",
+            "part_used": "root",
+            "dosage": "500mg or 1 cup tea",
+            "frequency": "daily",
+            "duration": "2-4 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["bitter greens", "beets", "cruciferous vegetables", "lemon water"],
+            "avoid": ["excess alcohol", "fried foods", "late heavy meals"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "gentle movement and emotional release",
+            "duration": "20-30 minutes",
+            "time_of_day": "morning or evening"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "walking or yoga",
+            "intensity": "low-moderate",
+            "duration": "30 minutes",
+            "frequency": "4-5x per week"
+          }
+        ],
+        "mind_body": {
+          "meditation": "15 minutes observing breath without judgment",
+          "breathwork": "deep diaphragmatic breathing, 5 minutes",
+          "journaling_prompts": [
+            "What am I holding back from expressing?",
+            "Where do I feel tension when stressed?"
+          ]
+        }
+      }
+    },
+    {
+      "pattern_id": "dampness_accumulation",
+      "tcm_framework": true,
+      "display_name": "Dampness Accumulation Pattern",
+      "symptoms": {
+        "required": ["digestive_upset", "fatigue"],
+        "supporting": ["brain_fog", "muscle_tension"]
+      },
+      "red_flags": ["severe_breathing"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Ginger",
+            "latin_name": "Zingiber officinale",
+            "part_used": "rhizome",
+            "dosage": "1-2g fresh or 500mg capsule",
+            "frequency": "before meals",
+            "duration": "2-3 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["warm cooked foods", "millet", "adzuki beans", "pumpkin"],
+            "avoid": ["dairy", "raw cold salads", "excess sugar", "ice drinks"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "dry heat therapy (warm bath, sauna if tolerated)",
+            "duration": "15-20 minutes",
+            "time_of_day": "evening"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "brisk walking",
+            "intensity": "moderate",
+            "duration": "25 minutes",
+            "frequency": "daily"
+          }
+        ],
+        "mind_body": {
+          "meditation": "body scan focusing on heaviness",
+          "journaling_prompts": ["What feels stagnant in my daily routine?"]
+        }
+      }
+    },
+    {
+      "pattern_id": "adrenal_fatigue_pattern",
+      "tcm_framework": false,
+      "display_name": "Adrenal Fatigue Pattern",
+      "symptoms": {
+        "required": ["fatigue", "insomnia"],
+        "supporting": ["brain_fog", "irritability", "cold_extremities"]
+      },
+      "red_flags": ["chest_pain_crushing"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Ashwagandha",
+            "latin_name": "Withania somnifera",
+            "part_used": "root",
+            "dosage": "300-600mg",
+            "frequency": "evening",
+            "duration": "6-8 weeks",
+            "caution": "Avoid during pregnancy; consult provider if on thyroid meds"
+          },
+          {
+            "name": "Rhodiola",
+            "latin_name": "Rhodiola rosea",
+            "part_used": "root",
+            "dosage": "200-400mg",
+            "frequency": "morning",
+            "duration": "4-6 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "breakfast",
+            "foods": ["protein-rich breakfast", "sea salt in moderation", "B-vitamin foods"],
+            "avoid": ["skipping meals", "excess caffeine after noon"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "consistent sleep schedule",
+            "duration": "7-9 hours",
+            "time_of_day": "night"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "gentle restorative movement",
+            "intensity": "low",
+            "duration": "20 minutes",
+            "frequency": "3-4x per week"
+          }
+        ],
+        "mind_body": {
+          "meditation": "10 minutes before bed",
+          "breathwork": "4-7-8 breathing",
+          "journaling_prompts": ["What drains my energy most?", "What restores me?"]
+        }
+      }
+    },
+    {
+      "pattern_id": "magnesium_deficiency_pattern",
+      "tcm_framework": false,
+      "display_name": "Magnesium Deficiency Pattern",
+      "symptoms": {
+        "required": ["muscle_tension", "insomnia"],
+        "supporting": ["irritability", "headache_temporal", "fatigue"]
+      },
+      "red_flags": [],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Magnesium Glycinate",
+            "latin_name": "",
+            "part_used": "supplement",
+            "dosage": "200-400mg elemental magnesium",
+            "frequency": "evening",
+            "duration": "4-8 weeks",
+            "caution": "Reduce dose if loose stools occur"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["dark leafy greens", "pumpkin seeds", "almonds", "avocado", "dark chocolate"],
+            "avoid": ["excess alcohol", "high soda intake"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "Epsom salt bath",
+            "duration": "20 minutes",
+            "time_of_day": "evening"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "stretching",
+            "intensity": "gentle",
+            "duration": "15 minutes",
+            "frequency": "daily"
+          }
+        ],
+        "mind_body": {
+          "meditation": "progressive muscle relaxation"
+        }
+      }
+    },
+    {
+      "pattern_id": "blood_deficiency_pattern",
+      "tcm_framework": true,
+      "display_name": "Blood Deficiency Pattern",
+      "symptoms": {
+        "required": ["fatigue", "insomnia"],
+        "supporting": ["dizziness", "pale_complexion", "dry_skin"]
+      },
+      "red_flags": ["blood_vomit"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Nettle Leaf",
+            "latin_name": "Urtica dioica",
+            "part_used": "leaf",
+            "dosage": "1-2 cups tea or 300mg",
+            "frequency": "daily",
+            "duration": "4-6 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["iron-rich foods with vitamin C", "beets", "dates", "black sesame"],
+            "avoid": ["tea/coffee with iron-rich meals"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "adequate rest between activities",
+            "duration": "ongoing",
+            "time_of_day": "throughout day"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "tai chi or qigong",
+            "intensity": "gentle",
+            "duration": "20 minutes",
+            "frequency": "4x per week"
+          }
+        ],
+        "mind_body": {
+          "journaling_prompts": ["Am I giving more than I receive?"]
+        }
+      }
+    },
+    {
+      "pattern_id": "kidney_yang_deficiency",
+      "tcm_framework": true,
+      "display_name": "Kidney Yang Deficiency Pattern",
+      "symptoms": {
+        "required": ["cold_extremities", "fatigue"],
+        "supporting": ["low_libido", "frequent_urination", "lower_back_ache"]
+      },
+      "red_flags": [],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Cinnamon",
+            "latin_name": "Cinnamomum cassia",
+            "part_used": "bark",
+            "dosage": "1/2 tsp powder in warm water",
+            "frequency": "morning",
+            "duration": "2-4 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["warm soups", "bone broth", "walnuts", "black beans"],
+            "avoid": ["ice-cold foods and drinks", "raw salads in winter"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "keep lower back and feet warm",
+            "duration": "ongoing",
+            "time_of_day": "all day"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "walking in sunlight",
+            "intensity": "moderate",
+            "duration": "30 minutes",
+            "frequency": "daily"
+          }
+        ],
+        "mind_body": {
+          "meditation": "warm light visualization in lower abdomen"
+        }
+      }
+    },
+    {
+      "pattern_id": "spleen_qi_deficiency",
+      "tcm_framework": true,
+      "display_name": "Spleen Qi Deficiency Pattern",
+      "symptoms": {
+        "required": ["digestive_upset", "fatigue"],
+        "supporting": ["brain_fog", "loose_stools", "poor_appetite"]
+      },
+      "red_flags": [],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Astragalus",
+            "latin_name": "Astragalus membranaceus",
+            "part_used": "root",
+            "dosage": "500-1000mg",
+            "frequency": "morning",
+            "duration": "4-8 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["rice congee", "sweet potato", "cooked vegetables", "small frequent meals"],
+            "avoid": ["cold raw foods", "excess dairy", "large late dinners"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "eat mindfully without screens",
+            "duration": "20 minutes per meal",
+            "time_of_day": "mealtimes"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "post-meal gentle walk",
+            "intensity": "low",
+            "duration": "10 minutes",
+            "frequency": "after main meals"
+          }
+        ],
+        "mind_body": {
+          "journaling_prompts": ["Do I rush through meals?"]
+        }
+      }
+    },
+    {
+      "pattern_id": "heart_shen_disturbance",
+      "tcm_framework": true,
+      "display_name": "Heart Shen Disturbance Pattern",
+      "symptoms": {
+        "required": ["insomnia", "emotional_stress_trigger"],
+        "supporting": ["palpitations", "anxiety", "restlessness"]
+      },
+      "red_flags": ["chest_pain_crushing", "suicidal_ideation"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Passionflower",
+            "latin_name": "Passiflora incarnata",
+            "part_used": "aerial parts",
+            "dosage": "250-500mg or tea",
+            "frequency": "evening",
+            "duration": "2-4 weeks",
+            "caution": "May enhance sedatives — consult provider"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "evening",
+            "foods": ["magnesium-rich foods", "chamomile tea", "light dinner 3h before bed"],
+            "avoid": ["caffeine after 2pm", "heavy spicy dinners", "alcohol"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "digital sunset 1 hour before bed",
+            "duration": "60 minutes",
+            "time_of_day": "evening"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "yin yoga",
+            "intensity": "restorative",
+            "duration": "30 minutes",
+            "frequency": "3x per week"
+          }
+        ],
+        "mind_body": {
+          "meditation": "loving-kindness meditation 10 minutes",
+          "breathwork": "extended exhale breathing"
+        }
+      }
+    },
+    {
+      "pattern_id": "wind_cold_invasion",
+      "tcm_framework": true,
+      "display_name": "Wind-Cold Invasion Pattern",
+      "symptoms": {
+        "required": ["chills", "neck_stiffness"],
+        "supporting": ["headache_temporal", "mild_fever", "body_aches"]
+      },
+      "red_flags": ["severe_breathing"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Elderberry",
+            "latin_name": "Sambucus nigra",
+            "part_used": "berry",
+            "dosage": "1 tbsp syrup or 500mg",
+            "frequency": "3x daily",
+            "duration": "3-5 days"
+          },
+          {
+            "name": "Ginger",
+            "latin_name": "Zingiber officinale",
+            "part_used": "rhizome",
+            "dosage": "fresh tea 2-3 cups",
+            "frequency": "daily",
+            "duration": "3-5 days"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["warm broths", "garlic", "onion soup", "hydration"],
+            "avoid": ["cold drinks", "ice cream", "raw foods"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "rest and warmth",
+            "duration": "24-72 hours",
+            "time_of_day": "as needed"
+          }
+        ],
+        "exercise": [],
+        "mind_body": {
+          "meditation": "rest — no vigorous practice until recovered"
+        }
+      }
+    },
+    {
+      "pattern_id": "phlegm_damp_stagnation",
+      "tcm_framework": true,
+      "display_name": "Phlegm-Damp Stagnation Pattern",
+      "symptoms": {
+        "required": ["brain_fog", "digestive_upset"],
+        "supporting": ["chest_congestion", "throat_phlegm", "fatigue"]
+      },
+      "red_flags": ["severe_breathing"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Mullein",
+            "latin_name": "Verbascum thapsus",
+            "part_used": "leaf",
+            "dosage": "1-2 cups tea",
+            "frequency": "daily",
+            "duration": "1-2 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["radish", "celery", "warm water with lemon"],
+            "avoid": ["dairy", "fried food", "excess bananas"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "steam inhalation",
+            "duration": "10 minutes",
+            "time_of_day": "morning"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "breath-focused walking",
+            "intensity": "light",
+            "duration": "20 minutes",
+            "frequency": "daily"
+          }
+        ],
+        "mind_body": {}
+      }
+    },
+    {
+      "pattern_id": "liver_yang_rising",
+      "tcm_framework": true,
+      "display_name": "Liver Yang Rising Pattern",
+      "symptoms": {
+        "required": ["headache_temporal", "irritability"],
+        "supporting": ["red_face", "tinnitus", "dizziness"]
+      },
+      "red_flags": ["stroke_signs"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Chrysanthemum",
+            "latin_name": "Chrysanthemum morifolium",
+            "part_used": "flower",
+            "dosage": "1-2 cups tea",
+            "frequency": "daily",
+            "duration": "1-2 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["celery", "cucumber", "pears", "cooling greens"],
+            "avoid": ["alcohol", "spicy hot food", "excess salt"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "reduce screen time and noise exposure",
+            "duration": "ongoing",
+            "time_of_day": "evening"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "swimming or gentle cycling",
+            "intensity": "moderate",
+            "duration": "30 minutes",
+            "frequency": "3x per week"
+          }
+        ],
+        "mind_body": {
+          "breathwork": "slow nasal breathing"
+        }
+      }
+    },
+    {
+      "pattern_id": "kidney_yin_deficiency",
+      "tcm_framework": true,
+      "display_name": "Kidney Yin Deficiency Pattern",
+      "symptoms": {
+        "required": ["night_sweats", "insomnia"],
+        "supporting": ["dry_mouth", "hot_flashes", "lower_back_ache"]
+      },
+      "red_flags": [],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Rehmannia",
+            "latin_name": "Rehmannia glutinosa",
+            "part_used": "root",
+            "dosage": "as directed on product",
+            "frequency": "daily",
+            "duration": "4-6 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["black beans", "tofu", "goji berries", "seaweed"],
+            "avoid": ["excess spicy food", "alcohol", "late nights"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "consistent bedtime before 11pm",
+            "duration": "ongoing",
+            "time_of_day": "night"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "yin yoga",
+            "intensity": "gentle",
+            "duration": "25 minutes",
+            "frequency": "4x per week"
+          }
+        ],
+        "mind_body": {
+          "meditation": "cooling moon visualization"
+        }
+      }
+    },
+    {
+      "pattern_id": "qi_stagnation_general",
+      "tcm_framework": true,
+      "display_name": "General Qi Stagnation Pattern",
+      "symptoms": {
+        "required": ["emotional_stress_trigger", "muscle_tension"],
+        "supporting": ["sighing", "chest_tightness", "irritability"]
+      },
+      "red_flags": ["chest_pain_crushing"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Lemon Balm",
+            "latin_name": "Melissa officinalis",
+            "part_used": "leaf",
+            "dosage": "1-2 cups tea",
+            "frequency": "afternoon",
+            "duration": "2-4 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["aromatic herbs", "citrus", "leafy greens"],
+            "avoid": ["overeating", "eating when upset"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "creative expression or talking with trusted friend",
+            "duration": "30 minutes",
+            "time_of_day": "afternoon"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "dance or brisk walk",
+            "intensity": "moderate",
+            "duration": "25 minutes",
+            "frequency": "4x per week"
+          }
+        ],
+        "mind_body": {
+          "journaling_prompts": ["What emotion am I not allowing to move through?"]
+        }
+      }
+    },
+    {
+      "pattern_id": "blood_stasis_pattern",
+      "tcm_framework": true,
+      "display_name": "Blood Stasis Pattern",
+      "symptoms": {
+        "required": ["fixed_stabbing_pain"],
+        "supporting": ["dark_circles", "varicose_veins", "PMS"]
+      },
+      "red_flags": ["chest_pain_crushing"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Turmeric",
+            "latin_name": "Curcuma longa",
+            "part_used": "rhizome",
+            "dosage": "500-1000mg with black pepper",
+            "frequency": "twice daily",
+            "duration": "4-6 weeks",
+            "caution": "Consult provider if on blood thinners"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["beets", "berries", "omega-3 foods", "colorful vegetables"],
+            "avoid": ["excess saturated fat", "sedentary eating patterns"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "gentle self-massage of affected area",
+            "duration": "10 minutes",
+            "time_of_day": "evening"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "circulation-focused movement",
+            "intensity": "moderate",
+            "duration": "30 minutes",
+            "frequency": "5x per week"
+          }
+        ],
+        "mind_body": {}
+      }
+    },
+    {
+      "pattern_id": "gut_inflammation_pattern",
+      "tcm_framework": false,
+      "display_name": "Gut Inflammation Pattern",
+      "symptoms": {
+        "required": ["digestive_upset"],
+        "supporting": ["bloating", "food_sensitivities", "skin_rash", "fatigue"]
+      },
+      "red_flags": ["blood_vomit"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Slippery Elm",
+            "latin_name": "Ulmus rubra",
+            "part_used": "bark",
+            "dosage": "1 tsp powder in water",
+            "frequency": "before meals",
+            "duration": "2-4 weeks"
+          },
+          {
+            "name": "Probiotics",
+            "latin_name": "",
+            "part_used": "supplement",
+            "dosage": "10-50 billion CFU",
+            "frequency": "daily",
+            "duration": "8 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["bone broth", "fermented foods", "cooked vegetables"],
+            "avoid": ["gluten trial elimination", "processed foods", "excess alcohol"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "food diary tracking",
+            "duration": "2 weeks",
+            "time_of_day": "ongoing"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "gentle walking after meals",
+            "intensity": "low",
+            "duration": "10 minutes",
+            "frequency": "daily"
+          }
+        ],
+        "mind_body": {
+          "journaling_prompts": ["Which foods correlate with symptom flares?"]
+        }
+      }
+    },
+    {
+      "pattern_id": "thyroid_support_pattern",
+      "tcm_framework": false,
+      "display_name": "Thyroid Support Pattern",
+      "symptoms": {
+        "required": ["fatigue", "cold_extremities"],
+        "supporting": ["weight_changes", "dry_skin", "brain_fog", "hair_thinning"]
+      },
+      "red_flags": [],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Seaweed (iodine source)",
+            "latin_name": "Various",
+            "part_used": "whole",
+            "dosage": "small amounts in diet",
+            "frequency": "2-3x per week",
+            "duration": "ongoing",
+            "caution": "Do not exceed iodine needs; consult provider if on thyroid medication"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["selenium-rich Brazil nuts", "zinc foods", "adequate protein"],
+            "avoid": ["excess raw cruciferous if hypothyroid (cooked is fine)"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "stress reduction",
+            "duration": "daily practice",
+            "time_of_day": "morning"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "strength training",
+            "intensity": "moderate",
+            "duration": "25 minutes",
+            "frequency": "3x per week"
+          }
+        ],
+        "mind_body": {}
+      }
+    },
+    {
+      "pattern_id": "hormonal_imbalance_pattern",
+      "tcm_framework": false,
+      "display_name": "Hormonal Imbalance Pattern",
+      "symptoms": {
+        "required": ["PMS"],
+        "supporting": ["mood_swings", "irregular_cycle", "acne", "bloating"]
+      },
+      "red_flags": [],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Vitex (Chasteberry)",
+            "latin_name": "Vitex agnus-castus",
+            "part_used": "berry",
+            "dosage": "20-40mg",
+            "frequency": "morning",
+            "duration": "3-6 months",
+            "caution": "Not for use with hormonal contraceptives without provider guidance"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["flax seeds", "cruciferous vegetables", "fiber-rich foods"],
+            "avoid": ["endocrine disruptors in plastics", "excess sugar"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "cycle tracking",
+            "duration": "ongoing",
+            "time_of_day": "daily"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "cycle-synced movement",
+            "intensity": "varies by phase",
+            "duration": "30 minutes",
+            "frequency": "4-5x per week"
+          }
+        ],
+        "mind_body": {
+          "journaling_prompts": ["How does my energy shift across my cycle?"]
+        }
+      }
+    },
+    {
+      "pattern_id": "immune_low_resilience",
+      "tcm_framework": false,
+      "display_name": "Low Immune Resilience Pattern",
+      "symptoms": {
+        "required": ["frequent_colds"],
+        "supporting": ["fatigue", "slow_recovery", "allergies"]
+      },
+      "red_flags": ["severe_breathing"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Echinacea",
+            "latin_name": "Echinacea purpurea",
+            "part_used": "aerial parts",
+            "dosage": "300-500mg",
+            "frequency": "at first sign of illness",
+            "duration": "7-10 days max"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["vitamin C foods", "zinc foods", "mushrooms", "garlic"],
+            "avoid": ["excess sugar during illness"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "prioritize sleep",
+            "duration": "7-9 hours",
+            "time_of_day": "night"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "moderate exercise when well",
+            "intensity": "moderate",
+            "duration": "25 minutes",
+            "frequency": "4x per week"
+          }
+        ],
+        "mind_body": {}
+      }
+    },
+    {
+      "pattern_id": "stress_burnout_pattern",
+      "tcm_framework": false,
+      "display_name": "Stress Burnout Pattern",
+      "symptoms": {
+        "required": ["fatigue", "emotional_stress_trigger"],
+        "supporting": ["insomnia", "irritability", "muscle_tension", "brain_fog"]
+      },
+      "red_flags": ["suicidal_ideation"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Holy Basil (Tulsi)",
+            "latin_name": "Ocimum sanctum",
+            "part_used": "leaf",
+            "dosage": "300-600mg or tea",
+            "frequency": "twice daily",
+            "duration": "4-8 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["balanced meals", "adaptogenic mushrooms", "complex carbs"],
+            "avoid": ["skipping meals", "excess stimulants"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "boundary setting and rest blocks",
+            "duration": "30 min daily",
+            "time_of_day": "afternoon"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "nature walk",
+            "intensity": "low",
+            "duration": "30 minutes",
+            "frequency": "daily"
+          }
+        ],
+        "mind_body": {
+          "meditation": "15 minutes non-judgmental awareness",
+          "journaling_prompts": ["What can I say no to this week?"]
+        }
+      }
+    },
+    {
+      "pattern_id": "detox_overload_pattern",
+      "tcm_framework": false,
+      "display_name": "Detox Pathway Overload Pattern",
+      "symptoms": {
+        "required": ["chemical_sensitivity"],
+        "supporting": ["headache_temporal", "skin_rash", "fatigue", "brain_fog"]
+      },
+      "red_flags": ["severe_allergic"],
+      "natural_protocol": {
+        "herbs": [
+          {
+            "name": "Milk Thistle",
+            "latin_name": "Silybum marianum",
+            "part_used": "seed",
+            "dosage": "150mg silymarin",
+            "frequency": "daily",
+            "duration": "4 weeks"
+          }
+        ],
+        "nutrition": [
+          {
+            "meal_type": "general",
+            "foods": ["cruciferous vegetables", "fiber", "hydration", "sulfur-rich foods"],
+            "avoid": ["new chemical exposures", "fragranced products", "pesticide-heavy produce when possible"]
+          }
+        ],
+        "lifestyle": [
+          {
+            "activity": "reduce environmental toxin exposure",
+            "duration": "ongoing",
+            "time_of_day": "all day"
+          }
+        ],
+        "exercise": [
+          {
+            "type": "sweat-inducing gentle exercise",
+            "intensity": "moderate",
+            "duration": "20 minutes",
+            "frequency": "3x per week"
+          }
+        ],
+        "mind_body": {}
+      }
+    }
+  ]
+}
