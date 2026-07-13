@@ -36,7 +36,7 @@ describe('AuthService.register', () => {
     expect(result.tokens.accessToken).toContain(result.user.id);
     expect(result.tokens.expiresIn).toBe(900);
     // The password hash must never leak into the public user object.
-    expect((result.user as Record<string, unknown>).passwordHash).toBeUndefined();
+    expect((result.user as unknown as Record<string, unknown>).passwordHash).toBeUndefined();
   });
 
   it('publishes user.registered on the event bus', async () => {

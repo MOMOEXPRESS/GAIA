@@ -82,13 +82,18 @@ export class TimelineService {
     if (!resource) return;
 
     const mapping = mapResourceToDisplay(resource);
+    // Normalize to UTC ISO 8601 so ordering and comparisons are consistent
+    // regardless of the source's offset notation.
+    const clinicalTimestamp = new Date(mapping.timestamp);
     const event: TimelineEvent = {
       id: randomUUID(),
       userId: envelope.aggregateId,
       eventType: mapping.eventType,
       // Out-of-order arrivals are fine: events are inserted chronologically by
       // their clinical timestamp, not arrival time (Vol 5 §5 Edge Cases).
-      timestamp: mapping.timestamp,
+      timestamp: Number.isNaN(clinicalTimestamp.getTime())
+        ? new Date(envelope.timestamp).toISOString()
+        : clinicalTimestamp.toISOString(),
       displayData: mapping.displayData,
       sourceModule: 'health-graph',
       sourceId: `${resource.id}:${resource.meta.versionId}`,
