@@ -1,0 +1,22 @@
+{
+  "name": "gaia-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Gaia — Your whole health, beautifully understood. Monorepo per Gaia Master Blueprint (Vol 6 §4.1, §15).",
+  "workspaces": [
+    "packages/shared-types",
+    "packages/ui",
+    "apps/mobile",
+    "apps/web",
+    "services/api"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

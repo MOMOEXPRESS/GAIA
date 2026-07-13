@@ -1,0 +1,74 @@
+# Gaia API deployment — stateless, horizontally scalable (Vol 6 §5.1, §13.1).
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gaia-api
+  labels:
+    app: gaia-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gaia-api
+  template:
+    metadata:
+      labels:
+        app: gaia-api
+    spec:
+      containers:
+        - name: gaia-api
+          image: gaia/api:latest # replaced by the commit-SHA tag in CD (Vol 6 §12.3)
+          ports:
+            - containerPort: 4000
+          envFrom:
+            - secretRef:
+                name: gaia-api-secrets # provisioned from the secret manager (Vol 6 §9.6)
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gaia-api
+spec:
+  selector:
+    app: gaia-api
+  ports:
+    - port: 80
+      targetPort: 4000
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: gaia-api
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: gaia-api
+  minReplicas: 2
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70

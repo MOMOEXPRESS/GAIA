@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Gaia",
+    "slug": "gaia",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "gaia",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#FAF9F7"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gaia.health"
+    },
+    "android": {
+      "package": "com.gaia.health"
+    },
+    "platforms": ["ios", "android"]
+  }
+}

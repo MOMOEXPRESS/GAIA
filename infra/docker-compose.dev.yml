@@ -1,0 +1,56 @@
+# Gaia development environment — PostgreSQL + Redis + services (Vol 6 §6).
+# Usage (from repo root):
+#   docker compose -f infra/docker-compose.dev.yml up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: gaia
+      POSTGRES_PASSWORD: gaia
+      POSTGRES_DB: gaia
+    ports:
+      - '5432:5432'
+    volumes:
+      - gaia-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U gaia']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: ..
+      dockerfile: infra/docker/api.Dockerfile
+    environment:
+      DATABASE_URL: postgres://gaia:gaia@postgres:5432/gaia
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: dev-secret-change-me
+      PORT: '4000'
+    ports:
+      - '4000:4000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  ai:
+    build:
+      context: ../services/ai
+      dockerfile: ../../infra/docker/ai.Dockerfile
+    ports:
+      - '8000:8000'
+
+volumes:
+  gaia-pgdata:

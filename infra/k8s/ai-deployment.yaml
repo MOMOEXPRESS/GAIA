@@ -1,0 +1,52 @@
+# Gaia AI service deployment (Vol 6 §5.4 AI Brain Service).
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gaia-ai
+  labels:
+    app: gaia-ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gaia-ai
+  template:
+    metadata:
+      labels:
+        app: gaia-ai
+    spec:
+      containers:
+        - name: gaia-ai
+          image: gaia/ai:latest
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gaia-ai
+spec:
+  selector:
+    app: gaia-ai
+  ports:
+    - port: 80
+      targetPort: 8000

@@ -1,0 +1,14 @@
+{
+  "name": "@gaia/shared-types",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TypeScript interfaces for all Gaia data models (Blueprint Vol 5).",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

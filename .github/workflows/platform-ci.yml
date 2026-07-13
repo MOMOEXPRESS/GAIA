@@ -1,0 +1,82 @@
+# Gaia Platform CI — lint, type-check, test, build for the Blueprint monorepo
+# (Vol 6 §12.3). Scoped to the monorepo paths so the legacy prototype's CI
+# (ci.yml) is unaffected.
+name: Platform CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/**'
+      - 'packages/**'
+      - 'services/**'
+      - 'infra/**'
+      - 'package.json'
+      - 'tsconfig.base.json'
+      - '.github/workflows/platform-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'apps/**'
+      - 'packages/**'
+      - 'services/**'
+      - 'infra/**'
+      - 'package.json'
+      - 'tsconfig.base.json'
+      - '.github/workflows/platform-ci.yml'
+
+jobs:
+  typescript:
+    name: TypeScript — typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install workspaces
+        run: npm install
+      - name: Type-check all workspaces
+        run: npm run typecheck
+      - name: Unit tests (api)
+        run: npm run test --workspace @gaia/api
+      - name: Build web
+        run: npm run build --workspace @gaia/web
+
+  ai-service:
+    name: AI service — pytest
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/ai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: pytest
+
+  docker:
+    name: Docker builds
+    runs-on: ubuntu-latest
+    needs: [typescript, ai-service]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API image
+        run: docker build -f infra/docker/api.Dockerfile -t gaia/api:${{ github.sha }} .
+      - name: Build AI image
+        run: docker build -f infra/docker/ai.Dockerfile -t gaia/ai:${{ github.sha }} services/ai
+
+  terraform:
+    name: Terraform validate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra/terraform
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform init -backend=false
+      - run: terraform fmt -check
+      - run: terraform validate

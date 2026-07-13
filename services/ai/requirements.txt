@@ -1,0 +1,7 @@
+# Gaia AI Service — Python/FastAPI (Blueprint Vol 6 §5.4: "We'll use Python
+# for its rich AI libraries"; Vol 7 for the orchestration architecture).
+fastapi==0.112.0
+uvicorn[standard]==0.30.5
+pydantic==2.8.2
+pytest==8.3.2
+httpx==0.27.0

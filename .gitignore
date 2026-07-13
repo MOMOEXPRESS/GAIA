@@ -41,5 +41,15 @@ htmlcov/
 # Vercel
 .vercel
 
+# Expo
+.expo/
+.expo-shared/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
 # Misc
 *.pem
